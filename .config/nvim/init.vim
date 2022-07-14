@@ -194,7 +194,7 @@ if !exists('g:vscode')
 else
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath=&runtimepath
-    source ./nvimvscoderc
+    source ./.nvimvscoderc
 
     "Map save file in VSCode"
     nmap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
