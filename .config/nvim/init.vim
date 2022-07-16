@@ -1,39 +1,8 @@
-"if !exists('g:vscode')
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath=&runtimepath
 source ~/.config/nvim/mine.vim
 
 inoremap jk <esc>
 
 set number
-
-call plug#begin()
-
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'yegappan/mru'
-Plug 'mileszs/ack.vim'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'amix/vim-zenroom2'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'dense-analysis/ale'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdcommenter'
-
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
-
-call plug#end()
-
 
 "CoC Configs"
 
@@ -189,29 +158,6 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 
-" True Color "
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-let g:gruvbox_italic=1
-colorscheme gruvbox
-
-let g:gruvbox_contrast_dark='hard'
-
 " NerdTree "
 " Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
@@ -314,18 +260,3 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :'<'>GBrowse!<CR>
 
-
-" else
-    "set runtimepath^=~/.vim runtimepath+=~/.vim/after
-    "let &packpath=&runtimepath
-    "source ~/.config/nvim/.nvimvscoderc
-
-    "Map save file in VSCode"
-    "nmap <leader>w <Cmd>call VSCodeNotify('workbench.action.files.save')<CR>
-
-    "call plug#begin()
-"
-"    Plug 'tpope/vim-surround'
-"
-"    call plug#end()
-"endif
