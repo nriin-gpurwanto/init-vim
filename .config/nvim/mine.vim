@@ -8,12 +8,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yegappan/mru'
 Plug 'mileszs/ack.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
@@ -22,6 +22,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'arthurxavierx/vim-caser'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'rust-lang/rust.vim'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -185,8 +187,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr

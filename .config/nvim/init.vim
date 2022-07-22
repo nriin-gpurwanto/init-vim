@@ -13,7 +13,7 @@ set nowritebackup
 
 set cmdheight=2
 
-set updatetime=200
+set updatetime=100
 
 set shortmess+=c
 
@@ -24,7 +24,7 @@ else
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" NOTE: Use command ' :verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -150,6 +150,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" CoC Rust "
+
+let g:rustfmt_autosave = 1
 " CoC Extensions "
 
 " coc-prettier "
@@ -178,16 +181,16 @@ nmap <C-n> <Plug>yankstack_substitute_newer_paste
 """"""""""""""""""""""""""""""
 " CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-" Quickly find and open a file in the current working directory
-let g:ctrlp_map = '<C-f>'
-map <leader>j :CtrlP<cr>
+"let g:ctrlp_working_path_mode = 0
+"" Quickly find and open a file in the current working directory
+"let g:ctrlp_map = '<C-f>'
+"map <leader>j :CtrlP<cr>
 
-" Quickly find and open a buffer
-map <leader>b :CtrlPBuffer<cr>
+"" Quickly find and open a buffer
+"map <leader>b :CtrlPBuffer<cr>
 
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+"let g:ctrlp_max_height = 20
+"let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
 
 """"""""""""""""""""""""""""""
@@ -260,3 +263,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :'<'>GBrowse!<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Silver Searcher and FZF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <C-f> :FZF<CR>
+nmap <C-E> :Ack<space>
